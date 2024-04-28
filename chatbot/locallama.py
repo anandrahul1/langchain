@@ -1,6 +1,7 @@
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+from langchain_community.llms import Ollama
 
 import streamlit as st
 import os
@@ -9,8 +10,6 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# Set OPENAI_API_KEY if it's not already set
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY", "")
 
 # Set LANGCHAIN_API_KEY if it's not already set
 os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY", "")
@@ -29,11 +28,11 @@ prompt=ChatPromptTemplate.from_messages(
 
 ## streamlit framework
 
-st.title('Langchain Demo With OPENAI API')
+st.title('Langchain Demo With LLMA2 API')
 input_text=st.text_input("Search the topic u want")
 
-# openAI LLm 
-llm=ChatOpenAI(model="gpt-3.5-turbo")
+# ollama LLAma2 LLm 
+llm=Ollama(model="llama2")
 output_parser=StrOutputParser()
 chain=prompt|llm|output_parser
 
