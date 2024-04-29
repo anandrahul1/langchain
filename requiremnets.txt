@@ -7,3 +7,15 @@ langserve
 fastapi
 uvicorn
 sse_starlette
+ipykernel
+bs4
+pypdf
+chromadb
+faiss-cpu
+groq
+cassio
+beautifulsoup4
+langchain-groq
+wikipedia
+arxiv
+langchainhub
